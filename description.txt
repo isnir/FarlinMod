@@ -1,0 +1,19 @@
+This mod add only spears at the moment.
+
+Add 19 Items
+
+ 17 Crafted with the different types of Ores and Materials,
+
+ 2 Can be Found in chests in the World.
+
+v0.6.0.2
+Fixed a typo that caused the wooden spear to appear in place of the dungeon spear. Sorry for that
+
+Added pt-BR Localization.
+
+
+v0.6.0.1
+Added a Dungeon themed Spear.
+You can find it in locked gold chests in the dungeon.
+
+The ice glaive no longer drops from mobs, you now can find it in ice chests.

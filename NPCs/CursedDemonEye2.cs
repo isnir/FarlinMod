@@ -91,7 +91,7 @@ namespace farlinMod.NPCs
 
 		public override void PostDraw(SpriteBatch spriteBatch, Color drawColor)
 		{
-			GlowmaskUtils.DrawNPCGlowMask(spriteBatch, false, true, npc, mod.GetTexture("NPCs/Textures/EvilEye2_Glow"));
+			Utils.DrawNPCGlowMask(spriteBatch, false, true, npc, mod.GetTexture("NPCs/Textures/EvilEye2_Glow"));
 		}
 		
 		public override void AI()

@@ -1,182 +1,17 @@
-﻿using Microsoft.Xna.Framework;
+﻿using static Terraria.ModLoader.ModContent;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using FarlinMod.Dusts;
 
 namespace farlinMod.Projectiles.Magic
 {
 	public class MagicProj_01 : ModProjectile
 	{
-		public override string Texture => "farlinMod/Projectiles/Textures/MagicSummonFlameProjectile";
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Summon Flame Projectile");
-		}
-		public override void SetDefaults()
-		{
-			projectile.width = 32;
-			projectile.height = 32;
-			projectile.alpha = 255;
-			projectile.magic = true;
-			projectile.friendly = true;
-			projectile.timeLeft = 980;
-			drawOffsetX = 0;
-			drawOriginOffsetY = 0;
-		}
-		public override bool CanDamage()
-		{
-			return false;
-		}
-		public override bool OnTileCollide(Vector2 oldVelocity)
-		{
-			//Makes the Projectile rebound on Tile Collide
-			if (projectile.velocity.X != oldVelocity.X)
-			{
-				projectile.velocity.X = -oldVelocity.X;
-			}
-			if (projectile.velocity.Y != oldVelocity.Y)
-			{
-				projectile.velocity.Y = -oldVelocity.Y;
-			}
-			projectile.velocity *= 0.2f;
-			return false;
-		}
-		public override void AI()
-		{
-			Player player = new Player();
-			if (projectile.owner == player.whoAmI)
-			{
-				for (int num858 = 0; num858 < 1000; num858++)
-				{
-					if (Main.projectile[num858].active && num858 != player.whoAmI && Main.projectile[num858].type == projectile.type && Main.projectile[num858].owner == projectile.owner && Main.projectile[num858].timeLeft > projectile.timeLeft)
-					{
-						projectile.Kill();
-						return;
-					}
-				}
-			}
-			// Custom AI : Makes the projectile shoot other projectile at random directions randonly.					
-			projectile.ai[0]++;
-			projectile.alpha -= 3;
-			if (projectile.ai[0] >= 60)
-			{
-				projectile.ai[0] = 60;
-				projectile.velocity.X = 0;
-				projectile.velocity.Y = 0;
-				projectile.rotation += .6f;
-			}
-			if (projectile.ai[1] <= 90)
-			{
-				projectile.ai[1]++;
-			}
-			if (projectile.ai[1] >= 90 && projectile.ai[0] == 60)
-			{
-				projectile.ai[1] = 0;
-				int r = Main.rand.Next(7, 13);
-				for (int i = 0; i < r; i++)
-				{
-					float vY = Main.rand.NextFloat(2.5f, -2.5f);
-					float vX = Main.rand.NextFloat(2.5f, -2.5f);
-					Projectile.NewProjectile(projectile.position.X + drawOffsetX + 15, projectile.position.Y + drawOriginOffsetY + 15, vX, vY, ModContent.ProjectileType<MagicProj_02>(), projectile.damage, projectile.knockBack, projectile.owner);
-				}
-			}
-		}
-		public override void Kill(int timeLeft)
-		{
-			//Dust Effect
-			for (int k = 0; k < 20; k++)
-			{
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 6);
-				dust.scale = 2f;
-				dust.noGravity = true;
-			}
-		}
-	}
-	public class MagicProj_02 : ModProjectile
-	{
-		public override string Texture => "farlinMod/Projectiles/Textures/ExtraMagicWildFlameProjectile";
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Wild Flame Projectile");
-		}
-		public override void SetDefaults()
-		{
-			projectile.width = 12;
-			projectile.height = 12;
-			projectile.alpha = 255;
-			projectile.magic = true;
-			projectile.friendly = true;
-			projectile.timeLeft = 120;
-		}
-		public override bool OnTileCollide(Vector2 oldVelocity)
-		{
-			//Makes the Projectile rebound on Tile Collide
-			int b = 3;
-			b--;
-			if (b <= 0)
-			{
-				projectile.Kill();
-			}
-			else
-			{
-				if (projectile.velocity.X != oldVelocity.X)
-				{
-					projectile.velocity.X = -oldVelocity.X;
-				}
-				if (projectile.velocity.Y != oldVelocity.Y)
-				{
-					projectile.velocity.Y = -oldVelocity.Y;
-				}
-				projectile.velocity *= 0.5f;
-				//Dust Effect
-				for (int k = 0; k < 6; k++)
-				{
-					Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 6);
-					dust.scale = 2f;
-					dust.noGravity = true;
-				}
-			}
-			return false;
-		}
-		public override void AI()
-		{
-			//Dust Effect			
-			for (int k = 0; k < 9; k++)
-			{
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 6);
-				dust.noGravity = true;
-			}
-			// Custom AI : Makes the projectile change direction randonly
-			if (projectile.ai[1] != 2)
-			{
-				projectile.ai[1]++;
-			}
-			if (projectile.ai[1] >= 2)
-			{
-
-				projectile.ai[1] = 0;
-				float vY = Main.rand.NextFloat(.5f, -.5f);
-				float vX = Main.rand.NextFloat(.5f, -.5f);
-				projectile.velocity.Y = projectile.velocity.Y + vY;
-				projectile.velocity.X = projectile.velocity.X + vX;
-			}
-		}
-		public override void Kill(int timeLeft)
-		{
-			//Dust Effect
-			for (int k = 0; k < 6; k++)
-			{
-				Dust dust = Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 6);
-				dust.scale = 2f;
-				dust.noGravity = true;
-			}
-		}
-	}
-	public class MagicProj_03 : ModProjectile
-	{
-		public override string Texture => "farlinMod/Projectiles/Textures/MagicCorruptorProjectile";
+		public override string Texture => "farlinMod/Projectiles/Textures/MagicSpawnerCorruptorProj";
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Corruptor Projectile");
@@ -192,15 +27,7 @@ namespace farlinMod.Projectiles.Magic
 			projectile.ignoreWater = true;
 			projectile.extraUpdates = 1;
 			projectile.timeLeft = 30;
-		}
-		public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
-		{
-			target.AddBuff(BuffID.CursedInferno, 60);
-		}
-		public override void OnHitPvp(Player target, int damage, bool crit)
-		{
-			target.AddBuff(BuffID.CursedInferno, 60);
-		}
+		}		
 		public override void AI()
 		{
 			//Dust Effects
@@ -232,14 +59,13 @@ namespace farlinMod.Projectiles.Magic
 			}
 			if (projectile.ai[0] >= 10 && projectile.owner == Main.myPlayer)
 			{
-				int projNum = 3;
-				for (int i = 0; i < projNum; i++)
+				for (int i = 0; i < 2; i++)
 				{
 					float projSpeedX = (float)Main.rand.Next(-5, 6) * 0.02f;
 					float projSpeedY = (float)Main.rand.Next(-15, 16) * 0.02f;
 					projSpeedX *= 10f;
 					projSpeedY *= 10f;
-					Projectile.NewProjectile(projectile.position.X, projectile.position.Y, projSpeedX, projSpeedY, ModContent.ProjectileType<MagicProj_04>(), (int)((double)projectile.damage * 0.5), (int)((double)projectile.knockBack * 0.35), Main.myPlayer);
+					Projectile.NewProjectile(projectile.position.X, projectile.position.Y, projSpeedX, projSpeedY, ModContent.ProjectileType<MagicProj_02>(), (int)((double)projectile.damage * 0.5), (int)((double)projectile.knockBack * 0.35), Main.myPlayer);
 					projectile.ai[0] = 0;
 				}
 			}
@@ -289,9 +115,9 @@ namespace farlinMod.Projectiles.Magic
 			}
 		}
 	}
-	public class MagicProj_04 : ModProjectile
+	public class MagicProj_02 : ModProjectile
 	{
-		public override string Texture => "farlinMod/Projectiles/Textures/MagicCorruptorSeekerProjectile";
+		public override string Texture => "farlinMod/Projectiles/Textures/MagicHomingCorruptorProj";
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Corruptor Seeker Projectile");
@@ -440,4 +266,50 @@ namespace farlinMod.Projectiles.Magic
 			}
 		}
 	}
+
+    public class MagicProj_03 : HomingBehaviour {
+
+		public override string Texture => "farlinMod/Projectiles/Textures/MagicHomingHeartProj";
+        public override void SetStaticDefaults()
+        {
+			Main.projFrames[projectile.type] = 3;
+			ProjectileID.Sets.Homing[projectile.type] = true;
+		}
+        public override void SetDefaults()
+        {
+			projectile.height = 16;
+			projectile.width = 16;
+			projectile.magic = true;
+			projectile.friendly = true;
+			projectile.alpha = 255;
+			projectile.timeLeft = 120;
+			projectile.ignoreWater = true;
+
+			maxHomigDistance = 250f;
+			adjustValue = 8;
+		}
+		public override Color? GetAlpha(Color lightColor)
+		{
+			Color value = Color.Lerp(lightColor, Color.White, 0.95f);
+			value.A = 128;
+			return value * (1f - (float)projectile.alpha / 255f);
+		}
+		public override void CreateVisuals()
+        {
+			if(projectile.alpha > 0)
+            {
+				projectile.alpha -= 50 ;				
+            }
+			if (projectile.alpha >= 50)
+			{
+				projectile.frame = Main.rand.Next(3);
+				projectile.scale = Main.rand.NextFloat(1f,2f);
+			}
+		}
+        public override void Kill(int timeLeft)
+        {
+			Main.PlaySound(SoundID.Item54, projectile.Center);			
+		}
+    }
+
 }

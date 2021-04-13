@@ -74,7 +74,7 @@ namespace farlinMod.NPCs
 
 		public override void PostDraw(SpriteBatch spriteBatch, Color drawColor)
 		{
-			GlowmaskUtils.DrawNPCGlowMask(spriteBatch, false, true, npc, mod.GetTexture("NPCs/Textures/EvilEye_Glow"));
+			Utils.DrawNPCGlowMask(spriteBatch, false, true, npc, mod.GetTexture("NPCs/Textures/EvilEye_Glow"));
 		}
 
 		public override void HitEffect(int hitDirection, double damage)

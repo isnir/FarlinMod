@@ -1,5 +1,6 @@
 ﻿using farlinMod.Projectiles.Melee;
 using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -8,10 +9,10 @@ namespace farlinMod.Items.Weapons.Melee
 {
 	public class Spear_01 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearWood";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearWood";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Wood Spear"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Wood Spear"); 
 		}
 		public override void SetDefaults()
 		{
@@ -28,16 +29,16 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_01>();
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 		public override void AddRecipes()
@@ -52,10 +53,10 @@ namespace farlinMod.Items.Weapons.Melee
 
 	public class Spear_02 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearBorealwood";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearBorealwood";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Boreal Wood Spear"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Boreal Wood Spear"); 
 		}
 		public override void SetDefaults()
 		{
@@ -72,16 +73,16 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_02>();
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 		public override void AddRecipes()
@@ -95,10 +96,10 @@ namespace farlinMod.Items.Weapons.Melee
 	}
 	public class Spear_03 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearEbonwood";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearEbonwood";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Ebonwood Lance"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Ebonwood Lance"); 
 		}
 		public override void SetDefaults()
 		{
@@ -115,16 +116,16 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_03>();
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 		public override void AddRecipes()
@@ -138,17 +139,17 @@ namespace farlinMod.Items.Weapons.Melee
 	}
 	public class Spear_04 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearShadewood";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearShadewood";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Shadewood Fork"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Shadewood Fork"); 
 		}
 		public override void SetDefaults()
 		{
 			item.damage = 9;
 			item.useStyle = ItemUseStyleID.HoldingOut;
-			item.useAnimation = 42;
-			item.useTime = 42;
+			item.useAnimation = 36;
+			item.useTime = 36;
 			item.shootSpeed = 3.7f;
 			item.knockBack = 3.5f;
 			item.width = 32;
@@ -158,16 +159,16 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_04>();
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 		public override void AddRecipes()
@@ -181,10 +182,10 @@ namespace farlinMod.Items.Weapons.Melee
 	}
 	public class Spear_05 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearPalmwood";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearPalmwood";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Palm Wood Trident"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Palm Wood Trident"); 
 		}
 		public override void SetDefaults()
 		{
@@ -201,16 +202,16 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_05>();
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 		public override void AddRecipes()
@@ -224,10 +225,10 @@ namespace farlinMod.Items.Weapons.Melee
 	}
 	public class Spear_06 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearMahoganywood";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearMahoganywood";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Rich Mahogany Glaive"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Rich Mahogany Spear"); 
 		}
 		public override void SetDefaults()
 		{
@@ -244,16 +245,16 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = true; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = true; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_06>();
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 		public override void AddRecipes()
@@ -267,10 +268,10 @@ namespace farlinMod.Items.Weapons.Melee
 	}
 	public class Spear_07 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearCopper";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearCopper";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Copper Spear"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Copper Spear"); 
 		}
 		public override void SetDefaults()
 		{
@@ -287,16 +288,16 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_07>();
-		}
-		public override bool CanUseItem(Player player)
+		}     
+        public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 		public override void AddRecipes()
@@ -310,10 +311,10 @@ namespace farlinMod.Items.Weapons.Melee
 	}
 	public class Spear_08 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearTin";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearTin";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Tin Spear"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Tin Spear"); 
 		}
 		public override void SetDefaults()
 		{
@@ -330,16 +331,16 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_08>();
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 		public override void AddRecipes()
@@ -353,10 +354,10 @@ namespace farlinMod.Items.Weapons.Melee
 	}
 	public class Spear_09 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearIron";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearIron";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Iron Spear"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Iron Spear"); 
 		}
 		public override void SetDefaults()
 		{
@@ -373,16 +374,16 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_09>();
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 		public override void AddRecipes()
@@ -396,10 +397,10 @@ namespace farlinMod.Items.Weapons.Melee
 	}
 	public class Spear_10 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearLead";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearLead";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Lead Spear"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Lead Spear"); 
 		}
 		public override void SetDefaults()
 		{
@@ -416,16 +417,16 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_10>();
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 		public override void AddRecipes()
@@ -439,10 +440,10 @@ namespace farlinMod.Items.Weapons.Melee
 	}
 	public class Spear_11 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearSilver";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearSilver";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Silver Spear"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Silver Spear"); 
 		}
 		public override void SetDefaults()
 		{
@@ -450,7 +451,7 @@ namespace farlinMod.Items.Weapons.Melee
 			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 28;
 			item.useTime = 28;
-			item.shootSpeed = 3.7f;
+			item.shootSpeed = 3.9f;
 			item.knockBack = 2.5f;
 			item.width = 32;
 			item.height = 32;
@@ -459,16 +460,16 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_11>();
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 		public override void AddRecipes()
@@ -482,10 +483,10 @@ namespace farlinMod.Items.Weapons.Melee
 	}
 	public class Spear_12 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearTungsten";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearTungsten";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Tungsten Spear"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Tungsten Spear"); 
 		}
 		public override void SetDefaults()
 		{
@@ -493,7 +494,7 @@ namespace farlinMod.Items.Weapons.Melee
 			item.useStyle = ItemUseStyleID.HoldingOut;
 			item.useAnimation = 28;
 			item.useTime = 28;
-			item.shootSpeed = 4.7f;
+			item.shootSpeed = 3.9f;
 			item.knockBack = 2.5f;
 			item.width = 32;
 			item.height = 32;
@@ -502,16 +503,16 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_12>();
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 		public override void AddRecipes()
@@ -525,10 +526,10 @@ namespace farlinMod.Items.Weapons.Melee
 	}
 	public class Spear_13 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearGold";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearGold";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Gold Spear"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Gold Spear"); 
 		}
 		public override void SetDefaults()
 		{
@@ -545,16 +546,16 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_13>();
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 		public override void AddRecipes()
@@ -568,10 +569,10 @@ namespace farlinMod.Items.Weapons.Melee
 	}
 	public class Spear_14 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearPlatinum";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearPlatinum";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Platinum Spear"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Platinum Spear"); 
 		}
 		public override void SetDefaults()
 		{
@@ -588,16 +589,16 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_14>();
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 		public override void AddRecipes()
@@ -611,10 +612,10 @@ namespace farlinMod.Items.Weapons.Melee
 	}
 	public class Spear_15 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearDemonite";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearDemonite";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Demonite Spear"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Demonite Spear"); 
 		}
 		public override void SetDefaults()
 		{
@@ -631,16 +632,16 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_15>();
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 		public override void AddRecipes()
@@ -654,10 +655,10 @@ namespace farlinMod.Items.Weapons.Melee
 	}
 	public class Spear_16 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearIce";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearIce";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Ice Glaive"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Ice Glaive"); 
 		}
 		public override void SetDefaults()
 		{
@@ -674,25 +675,25 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_16>();
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 	}
 	public class Spear_17 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearThorn";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearThorn";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Thorn"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Thorn"); 
 		}
 		public override void SetDefaults()
 		{
@@ -709,16 +710,16 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_17>();
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 		public override void AddRecipes()
@@ -734,10 +735,10 @@ namespace farlinMod.Items.Weapons.Melee
 	}
 	public class Spear_18 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearMolten";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearMolten";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Molten Lance"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Molten Lance"); 
 		}
 		public override void SetDefaults()
 		{
@@ -754,16 +755,16 @@ namespace farlinMod.Items.Weapons.Melee
 			item.value = Item.sellPrice(silver: 10);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_18>();
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
+			
 			return player.ownedProjectileCounts[item.shoot] < 1;
 		}
 		public override void AddRecipes()
@@ -777,10 +778,10 @@ namespace farlinMod.Items.Weapons.Melee
 	}
 	public class Spear_19 : ModItem
 	{
-		public override string Texture => "farlinMod/Items/Weapons/Textures/SpearDungeon";
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearDungeon";
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Calm Moon Spear"); // By default, capitalization in classnames will add spaces to the display name. You can customize the display name here by uncommenting this line.
+			DisplayName.SetDefault("Calm Moon Spear"); 
 			Tooltip.SetDefault("Causes a water blast on hit");
 		}
 		public override void SetDefaults()
@@ -795,20 +796,77 @@ namespace farlinMod.Items.Weapons.Melee
 			item.height = 32;
 			item.scale = 1f;
 			item.rare = ItemRarityID.Green;
-			item.value = Item.sellPrice(silver: 10);
+			item.value = Item.sellPrice(gold: 1);
 
 			item.melee = true;
-			item.noMelee = true; // Important because the spear is actually a projectile instead of an item. This prevents the melee hitbox of this item.
-			item.noUseGraphic = true; // Important, it's kind of wired if people see two spears at one time. This prevents the melee animation of this item.
-			item.autoReuse = false; // Most spears don't autoReuse, but it's possible when used in conjunction with CanUseItem()
+			item.noMelee = true; 
+			item.noUseGraphic = true; 
+			item.autoReuse = false; 
 
 			item.UseSound = SoundID.Item1;
 			item.shoot = ModContent.ProjectileType<SpearProjectile_19>();
+		}				
+		public override bool CanUseItem(Player player)
+		{			
+			return player.ownedProjectileCounts[item.shoot] < 1;
+		}
+	}
+	public class Spear_20 : ModItem
+	{
+		public override string Texture => "farlinMod/Items/Weapons/Textures/MeleeSpearScarab";
+		public override void SetStaticDefaults()
+		{
+			DisplayName.SetDefault("Scarab Glaive");
+			Tooltip.SetDefault("Use Right Click to throw.");
+
+		}
+		public override void SetDefaults()
+		{
+			item.damage = 14;
+			item.useStyle = ItemUseStyleID.HoldingOut;
+			item.useAnimation = 34;
+			item.useTime = 34;
+			item.shootSpeed = 3.7f;
+			item.knockBack = 5.5f;
+			item.width = 32;
+			item.height = 32;
+			item.scale = 1f;
+			item.rare = ItemRarityID.Blue;
+			item.value = Item.sellPrice(silver: 50);
+
+			item.melee = true;
+			item.noMelee = true;
+			item.noUseGraphic = true;
+			item.autoReuse = false;
+
+			item.UseSound = SoundID.Item1;
+			item.shoot = ModContent.ProjectileType<SpearProjectile_20>();
+		}		
+		public override bool AltFunctionUse(Player player)
+		{
+			return true;
 		}
 		public override bool CanUseItem(Player player)
 		{
-			// Ensures no more than one spear can be thrown out, use this when using autoReuse
-			return player.ownedProjectileCounts[item.shoot] < 1;
+			if (player.altFunctionUse == 2)
+			{
+				item.useStyle = ItemUseStyleID.SwingThrow;
+				item.useTime = 30;
+				item.useAnimation = 30;
+				item.shoot = ModContent.ProjectileType<MeleeProj_04>();
+				item.shootSpeed = 14;
+				return player.ownedProjectileCounts[item.shoot] < 1;
+			}
+			else
+			{
+				item.useStyle = ItemUseStyleID.HoldingOut;
+				item.useTime = 34;
+				item.useAnimation = 34;
+				item.shootSpeed = 3.7f;
+				item.shoot = ModContent.ProjectileType<SpearProjectile_20>();
+				return player.ownedProjectileCounts[ModContent.ProjectileType<MeleeProj_04>()] < 1;
+			}
+			return base.CanUseItem(player);
 		}
 	}
 }
